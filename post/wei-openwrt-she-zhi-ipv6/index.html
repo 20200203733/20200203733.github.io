@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" >
+
+<title>为OpenWrt设置IPv6 | JBlog</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+<link rel="shortcut icon" href="https://20200203733.github.io/favicon.ico?v=1737441625577">
+<link rel="stylesheet" href="https://20200203733.github.io/styles/main.css">
+
+
+
+<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+
+
+    <meta name="description" content="桥接方式
+新建接口Wan6，协议为DHCPv6
+将接口Wan和Lan的IPv6分配长度设为禁用
+将接口Wan的IPv6网关设为支持下发IPv6的DHCPv6服务器，IP地址设为其网段下的任意IP
+将接口Wan和Lan的IPv6设置中的路由通..." />
+    <meta name="keywords" content="" />
+  </head>
+  <body>
+    <div id="app" class="main">
+
+      <div class="sidebar" :class="{ 'full-height': menuVisible }">
+  <div class="top-container" data-aos="fade-right">
+    <div class="top-header-container">
+      <a class="site-title-container" href="https://20200203733.github.io">
+        <img src="https://20200203733.github.io/images/avatar.png?v=1737441625577" class="site-logo">
+        <h1 class="site-title">JBlog</h1>
+      </a>
+      <div class="menu-btn" @click="menuVisible = !menuVisible">
+        <div class="line"></div>
+      </div>
+    </div>
+    <div>
+      
+        
+          <a href="/" class="site-nav">
+            首页
+          </a>
+        
+      
+        
+          <a href="/archives" class="site-nav">
+            归档
+          </a>
+        
+      
+        
+          <a href="/post/about" class="site-nav">
+            关于
+          </a>
+        
+      
+    </div>
+  </div>
+  <div class="bottom-container" data-aos="flip-up" data-aos-offset="0">
+    <div class="social-container">
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    </div>
+    <div class="site-description">
+      
+    </div>
+    <div class="site-footer">
+      Powered by <a href="https://yxvm.com" target="_blank">YxVM</a> | <a class="rss" href="https://20200203733.github.io/atom.xml" target="_blank">RSS</a>
+    </div>
+  </div>
+</div>
+
+
+      <div class="main-container">
+        <div class="content-container" data-aos="fade-up">
+          <div class="post-detail">
+            <h2 class="post-title">为OpenWrt设置IPv6</h2>
+            <div class="post-date">2024-12-31</div>
+            
+            <div class="post-content" v-pre>
+              <h3 id="桥接方式">桥接方式</h3>
+<p>新建接口<code>Wan6</code>，协议为<code>DHCPv6</code><br>
+将接口<code>Wan</code>和<code>Lan</code>的<code>IPv6分配长度</code>设为<code>禁用</code><br>
+将接口<code>Wan</code>的<code>IPv6网关</code>设为支持<code>下发IPv6</code>的<code>DHCPv6服务器</code>，<code>IP地址</code>设为其<code>网段</code>下的<code>任意IP</code><br>
+将接口<code>Wan</code>和<code>Lan</code>的<code>IPv6设置</code>中的<code>路由通告服务</code>、<code>DHCPv6服务</code>和<code>NDP代理</code>设为<code>中继模式</code><br>
+在接口<code>Wan</code>的<code>IPv6设置</code>中，将<code>设为指定的主接口</code>勾选<br>
+<s>如无此选项，可编辑<code>/etc/config/dhcp</code>，在<code>config dhcp 'wan'</code>下添加<code>option master '1'</code></s><br>
+<s>如将编辑<code>/etc/config/dhcp</code>的步骤放在最后，需要在<code>接口</code>下选择<code>保存&amp;应用</code>；如无此按钮，可在<code>任一接口</code>下选择<code>保存&amp;应用</code></s><br>
+将接口<code>Lan</code>的<code>IPv6网关</code>设为支持<code>下发IPv6</code>的<code>DHCPv6服务器</code><br>
+将<code>IPv6 ULA 前缀</code>留空</p>
+
+            </div>
+            
+            
+              <div class="next-post">
+                <div class="next">下一篇</div>
+                <a href="https://20200203733.github.io/post/jiang-google-cloud-zuo-wei-yuan-cheng-zhuo-mian-shi-yong/">
+                  <h3 class="post-title">
+                    将Google Cloud作为远程桌面使用
+                  </h3>
+                </a>
+              </div>
+            
+
+            
+
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+<script type="application/javascript">
+
+AOS.init();
+
+var app = new Vue({
+  el: '#app',
+  data: {
+    menuVisible: false,
+  },
+})
+
+</script>
+
+
+
+
+
+
+  </body>
+</html>

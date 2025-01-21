@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+    <id>https://20200203733.github.io</id>
+    <title>JBlog</title>
+    <updated>2025-01-21T06:40:29.696Z</updated>
+    <generator>https://github.com/jpmonette/feed</generator>
+    <link rel="alternate" href="https://20200203733.github.io"/>
+    <link rel="self" href="https://20200203733.github.io/atom.xml"/>
+    <logo>https://20200203733.github.io/images/avatar.png</logo>
+    <icon>https://20200203733.github.io/favicon.ico</icon>
+    <rights>All rights reserved 2025, JBlog</rights>
+    <entry>
+        <title type="html"><![CDATA[为OpenWrt设置IPv6]]></title>
+        <id>https://20200203733.github.io/post/wei-openwrt-she-zhi-ipv6/</id>
+        <link href="https://20200203733.github.io/post/wei-openwrt-she-zhi-ipv6/">
+        </link>
+        <updated>2024-12-31T06:14:17.000Z</updated>
+        <content type="html"><![CDATA[<h3 id="桥接方式">桥接方式</h3>
+<p>新建接口<code>Wan6</code>，协议为<code>DHCPv6</code><br>
+将接口<code>Wan</code>和<code>Lan</code>的<code>IPv6分配长度</code>设为<code>禁用</code><br>
+将接口<code>Wan</code>的<code>IPv6网关</code>设为支持<code>下发IPv6</code>的<code>DHCPv6服务器</code>，<code>IP地址</code>设为其<code>网段</code>下的<code>任意IP</code><br>
+将接口<code>Wan</code>和<code>Lan</code>的<code>IPv6设置</code>中的<code>路由通告服务</code>、<code>DHCPv6服务</code>和<code>NDP代理</code>设为<code>中继模式</code><br>
+在接口<code>Wan</code>的<code>IPv6设置</code>中，将<code>设为指定的主接口</code>勾选<br>
+<s>如无此选项，可编辑<code>/etc/config/dhcp</code>，在<code>config dhcp 'wan'</code>下添加<code>option master '1'</code></s><br>
+<s>如将编辑<code>/etc/config/dhcp</code>的步骤放在最后，需要在<code>接口</code>下选择<code>保存&amp;应用</code>；如无此按钮，可在<code>任一接口</code>下选择<code>保存&amp;应用</code></s><br>
+将接口<code>Lan</code>的<code>IPv6网关</code>设为支持<code>下发IPv6</code>的<code>DHCPv6服务器</code><br>
+将<code>IPv6 ULA 前缀</code>留空</p>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[将Google Cloud作为远程桌面使用]]></title>
+        <id>https://20200203733.github.io/post/jiang-google-cloud-zuo-wei-yuan-cheng-zhuo-mian-shi-yong/</id>
+        <link href="https://20200203733.github.io/post/jiang-google-cloud-zuo-wei-yuan-cheng-zhuo-mian-shi-yong/">
+        </link>
+        <updated>2024-12-23T05:50:13.000Z</updated>
+        <content type="html"><![CDATA[<p>打开并登录<a href="https://console.cloud.google.com/">Google Cloud控制台</a><br>
+激活<code>Cloud Shell</code><br>
+运行<code>docker run -p 8080:80 dorowu/ubuntu-desktop-lxde-vnc</code><br>
+打开<code>网页预览</code></p>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Speedtest CLI]]></title>
+        <id>https://20200203733.github.io/post/speedtest-cli/</id>
+        <link href="https://20200203733.github.io/post/speedtest-cli/">
+        </link>
+        <updated>2024-12-19T05:57:41.000Z</updated>
+        <content type="html"><![CDATA[<p>根据<a href="https://www.speedtest.net/apps/cli">Speedtest</a>指示安装<code>Speedtest CLI</code><br>
+运行<code>speeedtest --secure --share</code>测速并生成分享链接</p>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[限制 Go 的最大堆内存]]></title>
+        <id>https://20200203733.github.io/post/xian-zhi-go-de-zui-da-dui-nei-cun/</id>
+        <link href="https://20200203733.github.io/post/xian-zhi-go-de-zui-da-dui-nei-cun/">
+        </link>
+        <updated>2024-12-15T05:29:46.000Z</updated>
+        <content type="html"><![CDATA[<p>从<code>Go 1.19</code>开始，可以通过环境变量限制 Go 程序的最大堆内存</p>
+<p><code>export GOMEMLIMIT=512MiB</code></p>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[解决systemd-resolve占用端口]]></title>
+        <id>https://20200203733.github.io/post/jie-jue-systemd-resolve-zhan-yong-duan-kou/</id>
+        <link href="https://20200203733.github.io/post/jie-jue-systemd-resolve-zhan-yong-duan-kou/">
+        </link>
+        <updated>2024-12-13T06:08:47.000Z</updated>
+        <content type="html"><![CDATA[<p>运行<code>systemctl stop systemd-resolved</code>停止<code>systemd-resolved</code></p>
+<h3 id="编辑resolvedconf">编辑resolved.conf</h3>
+<p>运行<code>vi /etc/systemd/resolved.conf</code><br>
+<code>DNS=8.8.8.8</code>设置<code>DNS</code><br>
+<code>DNSStubListener=no</code>停止<code>监听端口</code></p>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Cloudflare Origin Rules]]></title>
+        <id>https://20200203733.github.io/post/cloudflare-origin-rules/</id>
+        <link href="https://20200203733.github.io/post/cloudflare-origin-rules/">
+        </link>
+        <updated>2024-12-08T06:26:31.000Z</updated>
+        <content type="html"><![CDATA[<p>在<code>托管</code>于<code>Cloudflare</code>的<code>域名</code>下添加<code>DNS记录</code>指向<code>主机IP</code><br>
+在同一<code>域名</code>下找到<code>规则</code>并添加<code>Origin Rules</code>规则</p>
+<h3 id="设置自定义筛选表达式">设置<code>自定义筛选表达式</code></h3>
+<p>字段：主机名<br>
+运算符：等于<br>
+值：<code>DNS记录</code>的完整<code>子域</code><br>
+重写到：<code>主机</code>需要被添加<code>DNS记录</code>的<code>端口</code></p>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[通过SSH端口访问服务端口]]></title>
+        <id>https://20200203733.github.io/post/tong-guo-ssh-duan-kou-fang-wen-fu-wu-duan-kou/</id>
+        <link href="https://20200203733.github.io/post/tong-guo-ssh-duan-kou-fang-wen-fu-wu-duan-kou/">
+        </link>
+        <updated>2024-12-08T06:06:00.000Z</updated>
+        <content type="html"><![CDATA[<p><code>ssh -L (本地端口):127.0.0.1:(服务端口) (SSH用户名)@(SSH IP) -p (SSH端口)</code></p>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[将ClouDNS域名添加到CloudFlare]]></title>
+        <id>https://20200203733.github.io/post/jiang-cloudns-yu-ming-tian-jia-dao-cloudflare/</id>
+        <link href="https://20200203733.github.io/post/jiang-cloudns-yu-ming-tian-jia-dao-cloudflare/">
+        </link>
+        <updated>2024-12-04T05:31:51.000Z</updated>
+        <content type="html"><![CDATA[<p>在<code>ClouDNS</code>上申请域名<br>
+在<code>CloudFlare</code>上添加域名<br>
+为<code>根域</code>添加两条<code>NS记录</code>指向<code>CloudFlare</code>提供的<code>DNS服务器</code><br>
+为<code>CloudFlare</code>提供的<code>证书验证TXT名称</code>添加两条<code>NS记录</code>指向<code>CloudFlare</code>提供的<code>DNS服务器</code></p>
+<p>在<code>ClouDNS</code>和<code>CloudFlare</code>上为<code>根域</code>添加相同的<code>解析记录</code></p>
+<h3 id="泛域名解析方式">泛域名解析方式</h3>
+<p>在<code>ClouDNS</code>上为<code>*</code>添加<code>CNAME记录</code>指向<code>CloudFlare</code>提供的<code>DNS服务器</code><br>
+在<code>CloudFlare</code>上为任意<code>子域</code>添加<code>解析记录</code><br>
+<s>使用<code>CloudFlare</code>不支持<code>回源</code>的<code>端口</code>时，必须设置<code>Cloudflare Origin Rules</code>规则</s></p>
+<h3 id="双向解析方式">双向解析方式</h3>
+<p>在<code>ClouDNS</code>和<code>CloudFlare</code>上为任意<code>子域</code>添加相同的<code>解析记录</code><br>
+<s>在进行<code>DNS查询</code>时，<code>ClouDNS</code>中的<code>解析记录</code>优先级高于<code>CloudFlare</code>中的<code>解析记录</code>,需要手动指定<code>解析IP</code>为<code>CloudFlare CDN</code>的<code>IP</code>才可使用<code>CloudFlare CDN</code>加速</s></p>
+<p><a href="https://developers.cloudflare.com/fundamentals/reference/network-ports/">CloudFlare支持回源的端口</a></p>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[搭建TryCloudflare临时隧道]]></title>
+        <id>https://20200203733.github.io/post/da-jian-trycloudflare-lin-shi-sui-dao/</id>
+        <link href="https://20200203733.github.io/post/da-jian-trycloudflare-lin-shi-sui-dao/">
+        </link>
+        <updated>2024-12-01T05:20:11.000Z</updated>
+        <content type="html"><![CDATA[<p>在<a href="https://developers.cloudflare.com/cloudflare-one/connections/connect-networks/downloads/">Cloudflare</a>下载对应架构的二进制文件<br>
+将文件重命名为<code>cloudflared</code>，放置到任意目录<br>
+<code>chmod -R 755 ./cloudflared</code>赋予执行权限<br>
+<code>nohup ./cloudflared tunnel --no-autoupdate --url tcp://localhost:80 2&gt;&amp;1 &gt; cloudflared.log &amp;</code>建立临时隧道并将流量转发到指定的TCP端口<br>
+在<code>cloudflared.log</code>中找到分配的临时隧道域名</p>
+<p><a href="https://developers.cloudflare.com/cloudflare-one/connections/connect-networks/configure-tunnels/local-management/configuration-file/#supported-protocols">支持的协议</a></p>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Serv00 Xray]]></title>
+        <id>https://20200203733.github.io/post/serv00-proxy/</id>
+        <link href="https://20200203733.github.io/post/serv00-proxy/">
+        </link>
+        <updated>2024-10-11T03:45:14.000Z</updated>
+        <content type="html"><![CDATA[<p>在<code>Dodatkowe usługi</code> <code>Uruchamianie własnego oprogramowania</code>打开运行权限<br>
+在<code>Rezerwacja portów</code>添加一个TCP端口<br>
+在<a href="https://github.com/XTLS/Xray-core/releases">GitHub</a>下载<code>Xray-freebsd-64.zip</code><br>
+将Xray内核命名为<code>x</code>，编写配置文件<code>config.json</code>，上传到Serv00<br>
+<code>chmod -R 755 ~/*</code>赋予执行权限<br>
+<code>nohup ./x -c config.json &gt; /dev/null 2&gt;&amp;1 &amp;</code>无日志运行Xray<br>
+<code>rm -rf ~/*</code>删除文件防止被Serv00自动备份</p>
+<p><code>pkill -9 -u $(whoami)</code><s>杀掉所有进程</s></p>
+]]></content>
+    </entry>
+</feed>
